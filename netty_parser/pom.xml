@@ -4,28 +4,21 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <relativePath>../</relativePath>
-        <!--<relativePath>../pom.xml</relativePath>-->
         <artifactId>moquette-parent</artifactId>
-        <groupId>org.eclipse.moquette</groupId>
-        <version>0.7-SNAPSHOT</version>
+        <groupId>io.moquette</groupId>
+        <version>0.9-SNAPSHOT</version>
     </parent>
 
     <artifactId>moquette-netty-parser</artifactId>
     <packaging>jar</packaging>
-    <!--<version>${moquette-version}</version>-->
     <name>Moquette - Netty Parser</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <bintray.package>io.moquette.moquette-netty-parser</bintray.package>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>moquette-parser-commons</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-common</artifactId>
@@ -80,8 +73,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <excludes>
-                        <exclude>org/eclipse/moquette/parser/netty/TestUtils.java</exclude>
-                        <exclude>org/eclipse/moquette/parser/netty/TestUtils$*</exclude>
+                        <exclude>io/moquette/parser/netty/TestUtils.java</exclude>
+                        <exclude>io/moquette/parser/netty/TestUtils$*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -89,6 +82,10 @@
         </plugins>
     </build>
     
-    <repositories>
-    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <url>https://api.bintray.com/maven/${bintray.repo}/${bintray.package}</url>
+        </repository>
+    </distributionManagement>
 </project>
